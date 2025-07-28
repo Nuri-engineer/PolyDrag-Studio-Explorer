@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "./",
+    publicPath: "/PolyDrag-Studio-Explorer/",
     clean: true,
   },
   plugins: [
@@ -28,6 +28,18 @@ module.exports = {
       template: path.resolve(__dirname, "index.html"), // Тот же путь, что и в dev
       filename: "index.html",
       inject: "body",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/styles.css"),
+          to: "css/[name][ext]",
+        },
+        {
+          from: path.resolve(__dirname, "webcomp-boilerplate.js"),
+          to: "js/[name][ext]",
+        },
+      ],
     }),
   ],
   module: {
