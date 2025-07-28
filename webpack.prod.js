@@ -16,16 +16,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "styles.[contenthash].css",
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "webcomp-boilerplate.js"),
-          to: "js/[name][ext]", // Лучше сохранять в подпапку
-        },
-      ],
-    }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "index.html"), // Тот же путь, что и в dev
+      template: path.resolve(__dirname, "index.html"),
       filename: "index.html",
       inject: "body",
     }),
@@ -60,7 +52,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: "./",
+              publicPath: "../", // Важно для правильных путей к CSS
             },
           },
           "css-loader",
