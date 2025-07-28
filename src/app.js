@@ -2,7 +2,7 @@ import "./components/zone-buffer/Zone-buffer.js";
 import "./components/zone-work/Zone-work.js";
 import { generateUniquePolygons } from "./utils/polygon-utils.js";
 import { HelpModal } from "./components/HelpModal.js";
-import "./index.css";
+import "../index.css";
 
 const STORAGE_KEY = "polygons";
 const MAX_POLYGONS = 20;
