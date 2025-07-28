@@ -1,25 +1,43 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Добавляем плагин
 
 module.exports = {
-  mode: "development",
-  entry: "./src/app.js",
+  mode: 'development',
+  entry: './src/app.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   devServer: {
-    static: path.join(__dirname, "dist"),
+    static: {
+      directory: path.join(__dirname, 'dist'),
+      publicPath: '/',
+      serveIndex: true,
+    },
     port: 8080,
     hot: true,
-    open: true,
+    historyApiFallback: true,
   },
-  devtool: "inline-source-map",
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
     new HtmlWebpackPlugin({
-      template: "./index.html",
-    })
+      template: path.resolve(__dirname, 'index.html'),
+      filename: 'index.html',
+      inject: 'body',
+    }),
+    new CopyWebpackPlugin({ // Добавляем конфигурацию копирования
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'webcomp-boilerplate.js'),
+          to: path.resolve(__dirname, 'dist', 'webcomp-boilerplate.js')
+        }
+      ]
+    }),
   ],
   module: {
     rules: [
@@ -27,13 +45,25 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         }
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/',
+            },
+          },
+          'css-loader',
+        ],
       },
-    ]
-  }
+    ],
+  },
+  devtool: 'eval-cheap-module-source-map',
 };
