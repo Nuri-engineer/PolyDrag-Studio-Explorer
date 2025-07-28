@@ -1,37 +1,57 @@
-<!--
-SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
-
-SPDX-License-Identifier: CC0-1.0
--->
-
-<!-- Example of how you implement a webcomponent in a website -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href=https://www.svgrepo.com/show/434333/polygon.svg />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>PolyDrag Studio Explorer</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="data:,">
-  <title>Hello World!</title>
-</head>
+  <body>
+    <div id="app-container">
+      <div class="controls">
+        <div class="controls-left">
+          <button id="createBtn">Создать</button>
+        </div>
+        <div class="name">
+          <h3>PolyDrag Studio Explorer</h3>
+        </div>
+        <div class="controls-right">
+          <button id="saveBtn">Сохранить</button>
+          <button id="resetBtn">Сбросить</button>
+          <div id="help-icon" role="button" tabindex="0" title="Справка">?</div>
+        </div>
+      </div>
+      <zone-buffer id="bufferZone"></zone-buffer>
+      <zone-work id="workZone"></zone-work>
+    </div>
+    <div class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+  <div class="help-modal" tabindex="0">
+    <h2 id="help-modal-title">Справка по приложению PolyDrag Studio Explorer</h2>
+    <div class="help-content">
+      <h3>Как использовать:</h3>
+      <ul>
+        <li>Нажмите кнопку <strong>Создать</strong> для генерации новых уникальных многоугольников.</li>
+        <li>Перетаскивайте многоугольники из левой зоны (<em>buffer</em>) в правую (<em>work</em>) для работы с ними.</li>
+        <li>Вы можете перемещать многоугольники внутри рабочей зоны, используя drag & drop.</li>
+        <li>Используйте колесо мыши для масштабирования рабочей области.</li>
+        <li>Зажмите левую кнопку мыши и двигайте курсор для панорамирования рабочей области.</li>
+        <li>Нажмите кнопку <strong>Сохранить</strong>, чтобы сохранить текущее состояние в браузере.</li>
+        <li>Кнопка <strong>Сбросить</strong> очистит сохранённые данные и зоны.</li>
+      </ul>
+      <h3>Горячие клавиши:</h3>
+      <ul>
+        <li><strong>Esc</strong> — закрыть окно справки.</li>
+        <li><strong>Enter</strong> или <strong>Пробел</strong> — открыть окно справки при фокусе на иконке <em>?</em>.</li>
+      </ul>
+    </div>
+    <button class="close-button">Закрыть</button>
+  </div>
 
-<body>
+</div>
 
-  <h1>Web Component - Boilerplate & Helloworld</h1>
-
-  Code Snippet:
-  <pre><code>
-    &lt;hello-world title="Hello World!"&gt;&lt;/hello-world&gt;
-
-    &lt;script src="webcomp-boilerplate.js"&gt;&lt;/script&gt;
-  </code></pre>
-
-
-  Output:
-  <!-- Set the attribute "title" and refer to it as property in JS -->
-  <hello-world title="Hello World!" />
-  <script src="webcomp-boilerplate.js"></script>
-
-</body>
-
+    <script type="module" src="webcomp-boilerplate.js"></script>
+  </body>
 </html>
