@@ -19,6 +19,3 @@ yarn-error.log*
 .env
 dist/
 workspace/
-
-# Local Netlify folder
-.netlify
