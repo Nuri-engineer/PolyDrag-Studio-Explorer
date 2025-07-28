@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href=https://www.svgrepo.com/show/434333/polygon.svg />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://www.svgrepo.com/show/434333/polygon.svg"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="data:," />
     <title>PolyDrag Studio Explorer</title>
-    <link href="styles.css?v=1" rel="stylesheet">
   </head>
   <body>
     <div id="app-container">
@@ -26,31 +28,58 @@
       <zone-buffer id="bufferZone"></zone-buffer>
       <zone-work id="workZone"></zone-work>
     </div>
-    <div class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
-  <div class="help-modal" tabindex="0">
-    <h2 id="help-modal-title">Справка по приложению PolyDrag Studio Explorer</h2>
-    <div class="help-content">
-      <h3>Как использовать:</h3>
-      <ul>
-        <li>Нажмите кнопку <strong>Создать</strong> для генерации новых уникальных многоугольников.</li>
-        <li>Перетаскивайте многоугольники из левой зоны (<em>buffer</em>) в правую (<em>work</em>) для работы с ними.</li>
-        <li>Вы можете перемещать многоугольники внутри рабочей зоны, используя drag & drop.</li>
-        <li>Используйте колесо мыши для масштабирования рабочей области.</li>
-        <li>Зажмите левую кнопку мыши и двигайте курсор для панорамирования рабочей области.</li>
-        <li>Нажмите кнопку <strong>Сохранить</strong>, чтобы сохранить текущее состояние в браузере.</li>
-        <li>Кнопка <strong>Сбросить</strong> очистит сохранённые данные и зоны.</li>
-      </ul>
-      <h3>Горячие клавиши:</h3>
-      <ul>
-        <li><strong>Esc</strong> — закрыть окно справки.</li>
-        <li><strong>Enter</strong> или <strong>Пробел</strong> — открыть окно справки при фокусе на иконке <em>?</em>.</li>
-      </ul>
+    <div
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="help-modal-title"
+    >
+      <div class="help-modal" tabindex="0">
+        <h2 id="help-modal-title">
+          Справка по приложению PolyDrag Studio Explorer
+        </h2>
+        <div class="help-content">
+          <h3>Как использовать:</h3>
+          <ul>
+            <li>
+              Нажмите кнопку <strong>Создать</strong> для генерации новых
+              уникальных многоугольников.
+            </li>
+            <li>
+              Перетаскивайте многоугольники из левой зоны (<em>buffer</em>) в
+              правую (<em>work</em>) для работы с ними.
+            </li>
+            <li>
+              Вы можете перемещать многоугольники внутри рабочей зоны, используя
+              drag & drop.
+            </li>
+            <li>
+              Используйте колесо мыши для масштабирования рабочей области.
+            </li>
+            <li>
+              Зажмите левую кнопку мыши и двигайте курсор для панорамирования
+              рабочей области.
+            </li>
+            <li>
+              Нажмите кнопку <strong>Сохранить</strong>, чтобы сохранить текущее
+              состояние в браузере.
+            </li>
+            <li>
+              Кнопка <strong>Сбросить</strong> очистит сохранённые данные и
+              зоны.
+            </li>
+          </ul>
+          <h3>Горячие клавиши:</h3>
+          <ul>
+            <li><strong>Esc</strong> — закрыть окно справки.</li>
+            <li>
+              <strong>Enter</strong> или <strong>Пробел</strong> — открыть окно
+              справки при фокусе на иконке <em>?</em>.
+            </li>
+          </ul>
+        </div>
+        <button class="close-button">Закрыть</button>
+      </div>
     </div>
-    <button class="close-button">Закрыть</button>
-  </div>
-
-</div>
-
-    <script type="module" src="webcomp-boilerplate.js"></script>
   </body>
 </html>

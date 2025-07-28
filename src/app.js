@@ -3,7 +3,6 @@ import "./components/zone-work/Zone-work.js";
 import { generateUniquePolygons } from "./utils/polygon-utils.js";
 import { HelpModal } from "./components/HelpModal.js";
 import './styles.css';
-import "../webcomp-boilerplate.js";
 
 const STORAGE_KEY = "polygons";
 const MAX_POLYGONS = 20;

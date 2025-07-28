@@ -1,20 +1,19 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin'); // Добавляем плагин
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/app.js',
+  mode: "development",
+  entry: "./src/app.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
-      publicPath: '/',
+      directory: path.join(__dirname, "dist"),
+      publicPath: "/",
       serveIndex: true,
     },
     port: 8080,
@@ -23,20 +22,12 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: "styles.css",
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
-      filename: 'index.html',
-      inject: 'body',
-    }),
-    new CopyWebpackPlugin({ // Добавляем конфигурацию копирования
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'webcomp-boilerplate.js'),
-          to: path.resolve(__dirname, 'dist', 'webcomp-boilerplate.js')
-        }
-      ]
+      template: path.resolve(__dirname, "index.html"),
+      filename: "index.html",
+      inject: "body",
     }),
   ],
   module: {
@@ -45,11 +36,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.css$/,
@@ -57,13 +48,13 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '/',
+              publicPath: "/",
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
     ],
   },
-  devtool: 'eval-cheap-module-source-map',
+  devtool: "eval-cheap-module-source-map",
 };
