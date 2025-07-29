@@ -8,7 +8,8 @@ module.exports = {
   output: {
     filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/PolyDrag-Studio-Explorer/",
+    // publicPath: "/PolyDrag-Studio-Explorer/",
+    publicPath: "/",
     clean: true,
   },
   plugins: [
